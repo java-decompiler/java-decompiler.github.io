@@ -1,0 +1,1055 @@
+<!DOCTYPE HTML>
+<html>
+<head lang="en">
+<title>Java Decompiler</title>
+<meta name="description" content="JD Java Decompiler">
+<meta name="keywords" content="Java,Decompiler,JD,JD-Core,JD-Eclipse,JD-Intellij,java.decompiler.free.fr">
+<meta name="author" content="Emmanuel Dupuy">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="img/bullet.gif" rel="prefetch">
+<link href="img/sub_bullet.gif" rel="prefetch">
+<link href="img/win.gif" rel="prefetch">
+<link href="img/linux.gif" rel="prefetch">
+<link href="img/osx.gif" rel="prefetch">
+<link href="img/java.png" rel="prefetch">
+<link href="img/github.png" rel="prefetch">
+<link href="img/bitbucket.png" rel="prefetch">
+<link href="img/eclipse.png" rel="prefetch">
+<link href="img/intellij.png" rel="prefetch">
+<link href="img/paypal-donate.gif" rel="prefetch">
+<link href="img/enhancement.gif" rel="prefetch">
+<link href="img/major_enhancement.gif" rel="prefetch">
+<link href="img/bug_fix.gif" rel="prefetch">
+<link href="img/major_bug_fix.gif" rel="prefetch">
+<link href="css/jd.min.css" rel="stylesheet"></link>
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+<header>
+<div class="container">
+<div class="row">
+<div class="span12">
+<div class="page-header logo">
+<h1>Java Decompiler</h1>
+<aside>Yet another fast Java decompiler</aside>
+</div>
+</div>
+</div>
+</div>
+</header>
+
+<div class="container">
+<div class="row">
+
+<section id ="jd-project">
+<div class="span12">
+<div class="page-header">
+<h1>JD Project</h1>
+</div>
+</div>
+<div class="offset1 span11">
+<div class="tabbable">
+<ul class="nav nav-tabs">
+<li class="active"><a id="jd-project-overview-tab" href="#jd-project-overview" data-toggle="tab">Overview</a></li>
+<li><a id="jd-project-main-features-tab" href="#jd-project-main-features" data-toggle="tab">Main Features</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="jd-project-overview">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span11">
+<p>The &ldquo;Java Decompiler project&rdquo; aims to develop tools in order to decompile and analyze Java 5 &ldquo;byte code&rdquo; and the later versions.</p>
+<p><b>JD-Core</b> is a library that reconstructs Java source code from one or more &ldquo;.class&rdquo; files. JD-Core may be used to recover lost source code and explore the source of Java runtime libraries. New features of Java 5, such as annotations, generics or type &ldquo;enum&rdquo;, are supported. JD-GUI and JD-Eclipse include JD-Core library.</p>
+<p><b>JD-GUI</b> is a standalone graphical utility that displays Java source codes of &ldquo;.class&rdquo; files. You can browse the reconstructed source code with the JD-GUI for instant access to methods and fields.</p>
+<p><b>JD-Eclipse</b> is a plug-in for the Eclipse platform. It allows you to display all the Java sources during your debugging process, even if you do not have them all.</p>
+<p><b>JD-IntelliJ</b> is a plug-in for... the IntilliJ IDE.</p>
+<p>JD-Core, JD-GUI &amp; JD-Eclipse are open source projects released under the GPLv3 License.</p>
+</div>
+<div class="span1">
+<div>
+<a style="margin-left:6px" href="https://plus.google.com/107508651694381167848">
+<img src="img/gplus-29.png" alt="Google+"></img>
+</a>
+</div>
+<div>&nbsp;</div>
+<div>
+<a href="https://github.com/java-decompiler">
+<img src="img/github.png" alt="GitHub"></img>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="jd-project-main-features">
+<ul class="list">
+<li>JD-Core and JD-GUI are written in Java and Groovy.</li>
+<li>JD-Core works with most current compilers including the following:
+<ul>
+<li>jdk1.1.8, jdk1.3.1, jdk1.4.2, jdk1.5.0, jdk1.6.0, jdk1.7.0</li>
+<li>jrockit90_150_06</li>
+<li>jikes-1.22</li>
+<li>harmony-jdk-r533500</li>
+<li>Eclipse Java Compiler v_677_R32x, 3.2.1 release</li>
+</ul>
+</li>
+<li>JD-GUI supports Drag and Drop.</li>
+<li>JD-GUI supports JAR &amp; ZIP files.</li>
+<li>JD-GUI displays color coded Java source code.</li>
+<li>JD-GUI allows you to browse the &ldquo;class&rdquo; files hierarchy.</li>
+<li>JD-GUI displays &ldquo;log&rdquo; files, and allow you to decompile &ldquo;class&rdquo; files appearing in Java stack traces.</li>
+<li>Known limitations:
+<ul class="list">
+<li>Permissive declarations of local variables.</li>
+<li>Java 1.1
+<ul>
+<li><a class="link" href="http://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html">Local method classes</a> are not decompiled correctly.</li>
+</ul>
+</li>
+<li>Java 5
+<ul>
+<li><a class="link" href="http://docs.oracle.com/javase/1.5.0/docs/guide/language/static-import.html">Static Imports</a> are not displayed, but decompiled source codes are correct.li>
+</ul>
+</li>
+<li>Java 7
+<ul>
+<li>The <a class="link" href="http://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html">Auto-Closeable</a> syntactic sugar is not recognized.</li>
+<li>The Diamond Operators are not displayed, but decompiled source codes are correct.</li>
+</ul>
+</li>
+<li>Java 8
+<ul>
+<li><a class="link" href="http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html">Lambda expressions</a>.</li>
+<li><a class="link" href="http://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html">Default methods</a>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id ="jd-gui" class="container">
+<div class="span12">
+<div class="page-header">
+<h1>JD-GUI</h1>
+</div>
+</div>
+<div class="offset1 span11">
+<div class="tabbable">
+<ul class="nav nav-tabs">
+<li class="active"><a id="jd-gui-overview-tab" href="#jd-gui-overview" data-toggle="tab">Overview</a></li>
+<li><a id="jd-gui-download-tab" href="#jd-gui-download" data-toggle="tab">Download</a></li>
+<li><a id="jd-gui-changes-tab" href="#jd-gui-changes" data-toggle="tab">Changes</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="jd-gui-overview">
+<p>JD-GUI is a standalone graphical utility that displays Java source codes of &ldquo;.class&rdquo; files. You can browse the reconstructed source code with the JD-GUI for instant access to methods and fields.</p>
+<div class="pagination-centered">
+<img class="screenshot" src="img/screenshot17.png"></img>
+</div>
+</div>
+<div class="tab-pane" id="jd-gui-download">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span6">
+<h2>Releases</h2>
+<ul class="release">
+<li class="java">
+<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.1.0/jd-gui-1.1.0.jar"><strong>jd-gui-1.1.0.jar</strong></a></div>
+<div>Size : 7.55 MB</div>
+</li>
+<li class="osx">
+<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.1.0/jd-gui-osx-1.1.0.zip"><strong>jd-gui-osx-1.1.0.zip</strong></a></div>
+<div>Size : 6.81 MB</div>
+</li>
+<li class="win">
+<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.1.0/jd-gui-windows-1.1.0.zip"><strong>jd-gui-windows-1.1.0.zip</strong></a></div>
+<div>Size : 6.82 MB</div>
+</li>
+<hr>
+<li class="linux">
+<div><a href="http://jd.benow.ca/jd-gui/downloads/jd-gui-0.3.5.linux.i686.tar.gz"><strong>jd-gui-0.3.5.linux.i686.tar.gz</strong></a></div>
+<div>Size : 1,1 MB</div>
+<div>MD5 checksum : 3E82FFCB98508971D96150CF57837B13</div>
+</li>
+<li class="osx">
+<div><a href="http://jd.benow.ca/jd-gui/downloads/jd-gui-0.3.5.osx.i686.dmg"><strong>jd-gui-0.3.5.osx.i686.dmg</strong></a></div>
+<div>Size : 1,5 MB</div>
+<div>MD5 checksum : 203605F4B264294E7861D4538E2BC9EA</div>
+</li>
+<li class="win">
+<div><a href="http://jd.benow.ca/jd-gui/downloads/jd-gui-0.3.6.windows.zip"><strong>jd-gui-0.3.6.windows.zip</strong></a></div>
+<div>Size : 770 KB</div>
+<div>MD5 checksum : AC391B87FBEB6A10C17EEE5BF085EB37</div>
+</li>
+</ul>
+
+<h2>Source code</h2>
+<ul class="release">
+<li class="github">
+<div>&nbsp;</div>
+<div><a class="link" href="https://github.com/java-decompiler/jd-gui"><strong>github.com/java-decompiler/jd-gui</strong></a></div>
+<div>&nbsp;</div>
+</li>
+</ul>
+</div>
+<div class="span6">
+<h2>Thanks</h2>
+<p>Thanks to <b>Andy Taylor</b> to host JD-GUI files on <a class="link" href="http://benow.ca">benow.ca</a></p>
+
+<h2>Donations</h2>
+<p>Did JD-GUI help you to solve a critical situation? Do you use JD-Eclipse daily? What about making a donation?</p>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="img/paypal-donate.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+<select name="hosted_button_id">
+<option value="8585269" selected>Euro (&euro;)</option>
+<option value="8585343">USD (&#36;)</option>
+</select>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="jd-gui-changes">
+<ul class="release">
+<li class="github">
+<div>&nbsp;</div>
+<div><a class="link" href="https://github.com/java-decompiler/jd-gui/commits/master"><strong>Click here to view changes on GitHub.com</strong></a></div>
+<div>&nbsp;</div>
+</li>
+</ul>
+
+<div>&nbsp;</div>
+
+<p>Legend: <span class="legend-enhancement">enhancement</span>, <span class="legend-major-enhancement">major enhancement</span>, <span class="legend-bug-fix">bug fix</span>, <span class="legend-major-bug-fix">major bug fix</span></p>
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span6">
+<b>JD-GUI</b>
+<ul class="list">
+<li id="node-723">1.0.0 <span class="date">25 Mar 2015</span>
+<ul>
+<li class="major-enhancement">Refactoring &amp; porting from C++ to Java/Groovy.</li>
+<li class="major-enhancement">Moves the project to GitHub.</li>
+<li>JD-GUI 1.0.0 includes JD-Core 0.7.1.</li>
+</ul>
+</li>
+<li id="node-723">0.3.7 <span class="date">17 Aug 2014</span>
+<ul>
+<li class="enhancement">Improved exploration of class files by replacing the modal dialogs by "stay on top" windows.</li>
+<li>JD-GUI includes JD-Core 0.7.1.</li>
+</ul>
+</li>
+<li id="node-723">0.3.6 <span class="date">05 Nov 2013</span>
+<ul>
+<li class="enhancement">Removed all references to "java.decompiler.free.fr".</li>
+<li class="enhancement">Updated source pages after changing preferences.</li>
+<li class="enhancement">Unload repositories (JAR files or directories) when tabs are closed.</li>
+<li class="bug-fix">Fixed minor bug on history management.</li>
+<li>JD-GUI includes JD-Core 0.7.0.</li>
+</ul>
+</li>
+<li id="node-723">0.3.5 <span class="date">18 Oct 2012</span>
+<ul>
+<li>JD-GUI includes JD-Core 0.6.2.</li>
+</ul>
+</li>
+<li id="node-722">0.3.4 <span class="date">28 Aug 2012</span>
+<ul>
+<li>JD-GUI includes JD-Core 0.6.1.</li>
+</ul>
+</li>
+<li id="node-560">0.3.3 <span class="date">18 Aug 2010</span>
+<ul>
+<li class="bug-fix">Fixed crash when application is closing.</li>
+<li class="enhancement">Added the capability to display XML files (.xsd, .xsl, .rng, .xhtml).</li>
+<li class="enhancement">Added capability to hide the prefixes 'this'.</li>
+<li>JD-GUI includes JD-Core 0.6.0.</li>
+</ul>
+</li>
+<li id="node-474">0.3.2 <span class="date">20 Mar 2010</span>
+<ul>
+<li class="enhancement">Added an outline view in the navigation trees.</li>
+<li class="enhancement">Added an outline view popup window.</li>
+<li class="enhancement">Improved enlightenment of fields and methods from search results.</li>
+<li class="enhancement">Improved hyperlinks on the log pages.</li>
+<li class="enhancement">Improved tab names.</li>
+<li class="bug-fix">OSX: Fixed bug on "Info.plist" file.</li>
+<li class="enhancement">OSX: DnD to docked JD-GUI icon works.</li>
+<li class="enhancement">OSX: Optimisation of tree font.</li>
+<li class="enhancement">Linux: Optimisation of tree font.</li>
+<li class="enhancement">Added hyperlink on "Premain-Class' in "MANIFEST.MF".</li>
+<li class="enhancement">Limitation of depth of automatic folder exploration.</li>
+<li class="bug-fix">Fixed bug on octal and unicode representation of characters.</li>
+<li class="enhancement">Added capability to escape unicode characters.</li>
+<li class="major-enhancement">Improved history management.</li>
+<li>JD-GUI includes JD-Core 0.5.4.</li>
+</ul>
+</li>
+<li id="node-412">0.3.1 <span class="date">22 Nov 2009</span>
+<ul>
+<li class="enhancement">Indexation of annotations.</li>
+<li class="enhancement">Display packages of unarchived projects.</li>
+<li class="bug-fix">Fixed bug on "Search" dialog box.</li>
+<li class="bug-fix">Fixed bug on "Open Type Hierarchy" dialog box.</li>
+<li class="bug-fix">Fixed bug on "Open Type Hierarchy" dialog box.</li>
+<li class="major-bug-fix">Fixed bug on the process of project exploration.</li>
+<li class="major-enhancement">Improved the robustness of indexation against the corrupted classes.</li>
+<li>JD-GUI includes JD-Core 0.5.3.</li>
+</ul>
+</li>
+<li id="node-395">0.3.0 <span class="date">29 Oct 2009</span>
+<ul>
+<li class="major-enhancement">Added an engine indexing.</li>
+<li class="major-enhancement">Added a "Search" dialog box.</li>
+<li class="major-enhancement">Added an "Open Type Hierarchy" dialog box.</li>
+<li class="enhancement">Added capability to open Java Core files generated by IBM JVM.</li>
+<li>JD-GUI includes JD-Core 0.5.2.</li>
+</ul>
+</li>
+<li id="node-330">0.2.10 <span class="date">01 Jul 2009</span>
+<ul>
+<li class="bug-fix">Fixed bug with focus.</li>
+<li class="bug-fix">Fixed bug with tree view.</li>
+<li class="enhancement">Added the name of the decompiled class in the title of the application.</li>
+<li class="enhancement">Added the ZIP file support.</li>
+<li class="enhancement">Added the "Go to Line" dialog box.</li>
+<li class="enhancement">Added the highlightment of the words.</li>
+<li>JD-GUI includes JD-Core 0.5.1.</li>
+</ul>
+</li>
+<li id="node-281">0.2.9 <span class="date">26 Apr 2009</span>
+<ul>
+<li class="enhancement">Added capability to hide/show &ldquo;import&rdquo; statements.</li>
+<li>JD-GUI includes JD-Core 0.5.0.</li>
+</ul>
+</li>
+<li id="node-244">0.2.8 <span class="date">06 Mar 2009</span>
+<ul>
+<li class="enhancement">Improved the ".properties" file editor.</li>
+<li class="bug-fix">Fixed crash when clicking on the back button.</li>
+<li class="enhancement">Improved source code layout.</li>
+<li>JD-GUI includes JD-Core 0.4.7.</li>
+</ul>
+</li>
+<li id="node-180">0.2.7 <span class="date">23 Dec 2008</span>
+<ul>
+<li class="enhancement">Added menu "Recent Files".</li>
+<li>JD-GUI includes JD-Core 0.4.6.</li>
+</ul>
+</li>
+<li id="node-139">0.2.6 <span class="date">23 Nov 2008</span>
+<ul>
+<li class="bug-fix">Fixing crash due to loading of small JAR files.</li>
+<li class="enhancement">Added the capability to display XML files (.xml, .xsd, .tld), MANIFEST.MF files, properties files and text files.</li>
+<li class="enhancement">Added the entries "Post Suggestions" and "Report Bugs" on menu "Help".</li>
+<li>JD-GUI includes JD-Core 0.4.5.</li>
+</ul>
+</li>
+<li id="node-69">0.2.5 <span class="date">11 Sep 2008</span>
+<ul>
+<li class="bug-fix">All files, in JAR files, are displayed.</li>
+<li>JD-GUI includes JD-Core 0.4.4.</li>
+</ul>
+</li>
+<li id="node-68">0.2.4 <span class="date">03 Aug 2008</span>
+<ul>
+<li class="major-enhancement">Added capability to alert user when a new version is available.</li>
+<li class="bug-fix">Fixed bug on generation of color coded Java source code.</li>
+<li>JD-GUI includes JD-Core 0.4.3.</li>
+</ul>
+</li>
+<li id="node-67">0.2.3 <span class="date">13 Jul 2008</span>
+<ul>
+<li class="enhancement">Added capability to decompile &ldquo;.class&rdquo; files appearing in Java stack traces.</li>
+<li class="enhancement">Improvement the layout of Java sources.</li>
+<li>JD-GUI includes JD-Core 0.4.2.</li>
+</ul>
+</li>
+<li id="node-66">0.2.2 <span class="date">27 Jun 2008</span>
+<ul>
+<li class="major-enhancement">Added capability to display original line numbers if this information is available in &ldquo;.class&rdquo; files.</li>
+<li class="major-bug-fix">Fixed many memory leaks.</li>
+</ul>
+</li>
+<li id="node-65">0.2.1 <span class="date">24 May 2008</span>
+<ul>
+<li class="major-enhancement">Added capability to save Java sources of single &ldquo;.class&rdquo; files, or of all classes contained in JAR files.</li>
+<li class="bug-fix">Fixed a bug on the reloading of links between pages.</li>
+<li>JD-GUI includes JD-Core 0.4.0.</li>
+</ul>
+</li>
+<li id="node-64">0.2.0 <span class="date">13 Apr 2008</span>
+<ul>
+<li class="major-enhancement">Re-engineering of JD-GUI.</li>
+<li class="enhancement">Added search panel.</li>
+<li>JD-GUI includes JD-Core 0.3.5.</li>
+</ul>
+</li>
+<li id="node-63">0.1.3 <span class="date">20 Mar 2008</span>
+<ul>
+<li class="bug-fix">Fixed crash caused by 'Open Type' window when an empty JAR file is opened in JD-GUI.</li>
+<li class="enhancement">Added tooltips on the toolbar.</li>
+<li>JD-GUI includes JD-Core 0.3.4.</li>
+</ul>
+</li>
+<li id="node-62">0.1.2 <span class="date">16 Feb 2008</span>
+<ul>
+<li class="enhancement">A new 'Open Type' window is included to quickly find a type.</li>
+<li class="bug-fix">Fixed bug of focus on tree view.</li>
+<li>JD-GUI includes JD-Core 0.3.3.</li>
+</li>
+</ul>
+<li id="node-61">0.1.1 <span class="date">03 Feb 2008</span>
+<ul>
+<li class="major-enhancement">JD-GUI supports JAR files.</li>
+<li>JD-GUI includes JD-Core 0.3.2.</li>
+</ul>
+</li>
+<li id="node-60">0.1.0  <span class="date">15 Jan 2008</span>
+<ul>
+<li>First public version.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span6">
+<b>JD-Core</b>
+<ul class="list">
+<li id="node-724">0.7.1 <span class="date">17 Aug 2014</span>
+<ul>
+<li class="bug-fix">Fixed bug on recognition of ".class" expressions.</li>
+<li class="bug-fix">Fixed bug on recognition of "Switch Enum" instructions.</li>
+<li class="enhancement">Replacement of numeric values by known  numeric constants (e.g. Long.MAX_VALUE).</li>
+<li class="enhancement">Removed unnecessary "java.lang" prefixes.</li>
+<li class="bug-fix">Fixed bug on recognition of try-cacht statements containing a ternary operator on last position.</li>
+<li class="bug-fix">Added cast instructions on returned generic variables.</li>
+<li class="enhancement">Hiding synthetic fields of anonymous classes.</li>
+<li class="major-enhancement">Internally, improved JD-Core memory management (complex Smart Pointer C++ 11 replaced by basic but very efficient memory pool).</li>
+</ul>
+</li>
+<li id="node-724">0.7.0 <span class="date">05 Nov 2013</span>
+<ul>
+<li class="enhancement">Improved source code layout.</li>
+<li class="enhancement">Improved display for-enum statements.</li>
+<li class="major-bug-fix">Fixed a bug on the display of anonymous classes in anonymous classes.</li>
+<li class="major-enhancement">Added an algorithm to realign the decompiled source code to the original line numbers.</li>
+<li class="major-enhancement">Improved stability (catching of Hardware Exceptions under Windows and Segmentation Faults under Linux and OSX).</li>
+<li class="bug-fix">Fixed a bug on the decompilation of the "Switch Enum" statement.</li>
+</ul>
+</li>
+<li id="node-724">0.6.2 <span class="date">18 Oct 2012</span>
+<ul>
+<li class="major-bug-fix">Fixed bug on the decompilation of expressions : "(a - b) / 100.0D" was displayed as "a - b / 100.0D".</li>
+</ul>
+</li>
+<li id="node-721">0.6.1 <span class="date">28 Aug 2012</span>
+<ul>
+<li class="major-enhancement">Improved recognition of instruction flows.</li>
+<li class="major-enhancement">Significant improvement in the stability of the core.</li>
+</ul>
+</li>
+<li id="node-558">0.6.0 <span class="date">18 Aug 2010</span>
+<ul>
+<li class="major-enhancement">Improved recognition of instruction flows (Reduction of methods marked with ERROR and instructions "break label").</li>
+<li class="bug-fix">Display calls to constructor "this()".</li>
+<li class="bug-fix">Display ';' after 'break label'.</li>
+<li class="bug-fix">Display enum constructors.</li>
+</ul>
+</li>
+<li id="node-473">0.5.4 <span class="date">20 Mar 2010</span>
+<ul>
+<li class="bug-fix">Fixed bug on call of "this(...)" in constructors.</li>
+<li class="bug-fix">Display unique constructor without argument and launching exception(s).</li>
+<li class="bug-fix">Fixed bug on octal representation of characters.</li>
+<li class="bug-fix">Improved reconstruction of ".class" generated by JRE 1.4.</li>
+<li class="bug-fix">Display initial value of boolean attribute.</li>
+<li class="bug-fix">Display constructors of Enum.</li>
+<li class="major-bug-fix">Fixed major bug on pre and post incrementation statements.</li>
+<li class="enhancement">Java 5: Display switch+Enum.</li>
+<li class="enhancement">Java 7: Display switch+String.</li>
+<li class="major-bug-fix">Fixed bug on priority of operators.</li>
+<li class="enhancement">Remove extra parentheses associated with return statement.</li>
+</ul>
+</li>
+<li id="node-410">0.5.3 <span class="date">22 Nov 2009</span>
+<ul>
+<li class="bug-fix">Fixed bug on decompilation of 'assert'.</li>
+<li class="major-enhancement">Improved the robustness of JD-Core against the corrupted classes.</li>
+</ul>
+</li>
+<li id="node-394">0.5.2 <span class="date">29 Oct 2009</span>
+<ul>
+<li class="enhancement">Added support of 'assert'.</li>
+<li class="bug-fix">Fixed bug on recongnition of the 'for' statements.</li>
+<li class="bug-fix">Fixed bug on recongnition of the synchronized blocks.</li>
+<li class="bug-fix">Fixed bug on recongnition the 'if' statements.</li>
+<li class="bug-fix">Fixed bug on recongnition the ternary statements.</li>
+<li class="major-bug-fix">Fixed bug on recongnition the 'try' statements.</li>
+</ul>
+</li>
+<li id="node-328">0.5.1 <span class="date">30 Jun 2009</span>
+<ul>
+<li class="major-enhancement">Improved the reconstruction of the loops when a "try" or "synchronized" statement is on the last position.</li>
+<li class="major-enhancement">Improved the reconstruction of the "if-else" statements when a "try" or "synchronized" statement is on the last position.</li>
+<li class="bug-fix">Removed extra "," at the beginning of parameters list.</li>
+<li class="enhancement">Improved the reconstruction of the "break" and "continue" statements.</li>
+<li class="bug-fix">Fixed bug on floating point precision.</li>
+<li class="bug-fix">Fixed bug on the declaration of multi-dimensional arrays.</li>
+<li class="enhancement">Improved the reconstruction of the Java 5 "for-each" loops.</li>
+<li class="enhancement">Improved reconstruction of the "try ... catch ... finally" and "synchronized" statments.</li>
+<li class="enhancement">Improved reconstruction of the keyword ".class" for Java 1.1.8.</li>
+</ul>
+</li>
+<li id="node-280">0.5.0 <span class="date">26 Apr 2009</span>
+<ul>
+<li class="major-enhancement">Redesigned core to improve the decompilation of the inner classes.</li>
+<li class="enhancement">Improved the reconstruction of the Java 5 &ldquo;for-each&rdquo; loops.</li>
+<li class="bug-fix">Fixed bug on declaration of variables.</li>
+<li class="bug-fix">Fixed bug on empty &ldquo;finally&rdquo; blocks.</li>
+</ul>
+</li>
+<li id="node-235">0.4.7 <span class="date">27 Feb 2009</span>
+<ul>
+<li class="bug-fix">Fixed bug on constants of type long.</li>
+<li class="bug-fix">Fixed bug on floating point precision.</li>
+<li class="bug-fix">Fixed bug on decompilation of multiple super interfaces.</li>
+<li class="major-bug-fix">Fixed bug on initialization of arrays of constants.</li>
+<li class="bug-fix">Fixed bug on boolean operators values.</li>
+<li class="major-enhancement">Added capability to decompile Java 5 &ldquo;for-each&rdquo; loop.</li>
+</ul>
+</li>
+<li id="node-181">0.4.6 <span class="date">24 Dec 2008</span>
+<ul>
+<li class="bug-fix">Fixed bug with wrong qualified names.</li>
+<li class="bug-fix">Fixed bug with empty default constructor.</li>
+<li class="major-bug-fix">Fixed bug with nested while error.</li>
+<li class="bug-fix">Fixed bug in display of value of type "long".</li>
+</ul>
+</li>
+<li id="node-140">0.4.5 <span class="date">23 Nov 2008</span>
+<ul>
+<li class="enhancement">Improved recontruction of ternary operator.</li>
+<li class="enhancement">Improved decompilation of the Hashtable class compiled with javac 1.5.0 and 1.6.0.</li>
+<li class="bug-fix">Fix bug on declaration of interface.</li>
+</ul>
+</li>
+<li id="node-59">0.4.4 <span class="date">11 Sep 2008</span>
+<ul>
+<li class="major-enhancement">Improved reconstruction of statments &ldquo;try ... catch ... finally&rdquo; and &ldquo;synchronized&rdquo;.</li>
+<li class="bug-fix">Fixed bug with reconstruction of instructions &ldquo;dup2_x1&rdquo;.</li>
+<li class="enhancement">Added reconstruction of assigment operators.</li>
+<li class="major-bug-fix">Fixed memory leak.</li>
+<li class="bug-fix">Fixed many other bugs...</li>
+</ul>
+</li>
+<li id="node-58">0.4.3 <span class="date">03 Aug 2008</span>
+<ul>
+<li class="bug-fix">Fixed bug with reconstruction of statment &ldquo;if&rdquo; in the blocks &ldquo;try&rdquo;.</li>
+<li class="enhancement">Improved reconstruction of obfuscated variable names.</li>
+<li class="bug-fix">Fixed bug with reconstruction of comparisons of variables of types &ldquo;long&rdquo; and  &ldquo;double&rdquo;.</li>
+<li class="bug-fix">Fixed bug with display of constants of type &ldquo;long&rdquo;.</li>
+</ul>
+</li>
+<li id="node-57">0.4.2 <span class="date">13 Jul 2008</span>
+<ul>
+<li class="major-enhancement">Added initialization of attributes instance.</li>
+</ul>
+</li>
+<li id="node-56">0.4.1 <span class="date">27 Jun 2008</span>
+<ul>
+<li class="major-enhancement">Fixed many memory leaks.</li>
+</ul>
+</li>
+<li id="node-55">0.4.0 <span class="date">24 May 2008</span>
+<ul>
+<li class="bug-fix">Fixed many bugs...</li>
+<li class="major-enhancement">Redesigned core to take advantage of the line numbers if this information is present in &ldquo;.class&rdquo; files.</li>
+<li class="enhancement">Improved reconstruction of loops &ldquo;for&rdquo;.</li>
+<li class="enhancement">Improved initialisation of arrays.</li>
+</ul>
+</li>
+<li id="node-54">0.3.5 <span class="date">13 Apr 2008</span>
+<ul>
+<li class="bug-fix">Fixed bug in generation of list of &ldquo;import&rdquo;.</li>
+<li class="bug-fix">Fixed bug in reconstruction of ternary operator.</li>
+<li class="enhancement">Display annotations on method parameters.</li>
+</ul>
+</li>
+<li id="node-53">0.3.4 <span class="date">20 Mar 2008</span>
+<ul>
+<li class="major-bug-fix">Fixed crash caused by deserialization of annotations.</li>
+<li class="enhancement">Improved reconstruction of Java keyword &ldquo;class&rdquo; compiled with JDK 1.1.8, 1.3.1 & 1.4.2, Jikes 1.22, Eclipse Java Compiler v_677_R32x and harmony-jdk-r533500.</li>
+<li class="major-bug-fix">Fixed bug in reconstruction of the &ldquo;try...catch&rdquo; statements.</li>
+<li class="bug-fix">Fixed bug in module for determination of type of local variables.</li>
+<li class="enhancement">Improved reconstruction of blocs &ldquo;try...finally&rdquo; compiled with JDK 1.1.8.</li>
+</ul>
+</li>
+<li id="node-52">0.3.3 <span class="date">16 Feb 2008</span>
+<ul>
+<li class="enhancement">Improved module for determination of type of local variables.</li>
+<li class="enhancement">Improved creation of the &ldquo;try...catch&rdquo; statements.</li>
+<li class="major-bug-fix">Changed priority of operators '+=' and '-='.</li>
+<li class="bug-fix">Fixed syntax error on &ldquo;throws&rdquo; keyword.</li>
+<li class="bug-fix">Fixed bug of methods named &ldquo;length()&rdquo;.</li>
+<li class="bug-fix">Fixed bug in deserialization of "wide" instruction.</li>
+</ul>
+</li>
+<li id="node-51">0.3.2 <span class="date">03 Feb 2008</span>
+<ul>
+<li class="bug-fix">Fixed &ldquo;java.util.Collections&rdquo; 1.5 decompilation bug.</li>
+<li class="enhancement">Renamed methods when their name is a Java keyword.</li>
+</ul>
+</li>
+<li id="node-50">0.3.1 <span class="date">15 Jan 2008</span>
+<ul>
+<li>First public version.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id ="jd-eclipse" class="container">
+<div class="span12">
+<div class="page-header">
+<h1>JD-Eclipse</h1>
+</div>
+</div>
+<div class="offset1 span11">
+<div class="tabbable">
+<ul class="nav nav-tabs">
+<li id="jd-eclipse-overview-tab" class="active"><a href="#jd-eclipse-overview" data-toggle="tab">Overview</a></li>
+<li><a id="jd-eclipse-download-tab" href="#jd-eclipse-download" data-toggle="tab">Download</a></li>
+<li><a id="jd-eclipse-changes-tab" href="#jd-eclipse-changes" data-toggle="tab">Changes</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="jd-eclipse-overview">
+<p>JD-Eclipse is a plug-in for the Eclipse platform. It allows you to display all the Java sources during your debugging process, even if you do not have them all.</p>
+<div class="pagination-centered">
+<img class="screenshot" src="img/screenshot8.png"></img>
+</div>
+</div>
+<div class="tab-pane" id="jd-eclipse-download">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span6">
+<h2>Release</h2>
+<ul class="release">
+<li class="eclipse">
+<div><a href="https://github.com/java-decompiler/jd-eclipse/releases/download/v1.0.0/jd-eclipse-site-1.0.0-RC2.zip"><strong>jd-eclipse-site-1.0.0-RC2.zip</strong></a></div>
+<div>Size : 579 KB</div>
+</li>
+</ul>
+
+<h2>Source code</h2>
+<ul class="release">
+<li class="github">
+<div>&nbsp;</div>
+<div><a class="link" href="https://github.com/java-decompiler/jd-eclipse"><strong>github.com/java-decompiler/jd-eclipse</strong></a></div>
+<div>&nbsp;</div>
+</li>
+</ul>
+
+<h2>Installation</h2>
+<ol>
+<li>Download and unzip the JD-Eclipse Update Site,</li>
+<li>Launch Eclipse,</li>
+<li>Click on <i>"Help > Install New Software..."</i>,</li>
+<li>Click on button <i>"Add..."</i> to add an new repository,</li>
+<li>Enter <i>"JD-Eclipse Update Site"</i> and select the local site directory,</li>
+<li>Check <i>"Java Decompiler Eclipse Plug-in"</i>,</li>
+<li>Next, next, next... and restart Eclipse.</li>
+</ol>
+</div>
+<div class="span6">
+<h2>Thanks</h2>
+<p>Thanks to <b>Andy Taylor</b> to host JD-Eclipse Update Site files on <a class="link" href="http://benow.ca">http://benow.ca</a></p>
+
+<h2>Donations</h2>
+<p>Did JD-GUI help you to solve a critical situation? Do you use JD-Eclipse daily? What about making a donation?</p>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="img/paypal-donate.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+<select name="hosted_button_id">
+<option value="8585269" selected>Euro (&euro;)</option>
+<option value="8585343">USD (&#36;)</option>
+</select>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="jd-eclipse-changes">
+<ul class="release">
+<li class="github">
+<div>&nbsp;</div>
+<div><a class="link" href="https://github.com/java-decompiler/jd-eclipse/commits/master"><strong>Click here to view changes on GitHub.com</strong></a></div>
+<div>&nbsp;</div>
+</li>
+</ul>
+
+<div>&nbsp;</div>
+
+<p>Legend: <span class="legend-enhancement">enhancement</span>, <span class="legend-major-enhancement">major enhancement</span>, <span class="legend-bug-fix">bug fix</span>, <span class="legend-major-bug-fix">major bug fix</span></p>
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span6">
+<b>JD-Eclipse</b>
+<ul class="list">
+<li id="node-425">1.0.0<span class="date">23 Apr 2015</span>
+<ul>
+<li class="major-enhancement">Porting from C++ to Java.</li>
+<li class="major-enhancement">Moves the project to GitHub.</li>
+<li>JD-Eclipse 1.0.0 includes JD-Core 0.7.1.</li>
+</ul>
+</li>
+<li id="node-425">0.1.5<span class="date">5 Mar 2014</span>
+<ul>
+<li class="major-enhancement">Improved stability.</li>
+<li class="enhancement">Updated decompiled source pages after changing preferences.</li>
+<li class="bug-fix">Fixed bug on class file locator.</li>
+<li>JD-Eclipse 0.1.5 includes JD-Core 0.7.0.</li>
+</ul>
+</li>
+<li id="node-425">0.1.4 <span class="date">16 Aug 2013</span>
+<ul>
+<li class="bug-fix">Fixed problem on "File Associations" under Eclipse Juno and the upper versions.</li>
+<li>JD-Eclipse 0.1.4 includes JD-Core 0.5.3.</li>
+</ul>
+</li>
+<li id="node-425">0.1.3 <span class="date">17 Dec 2009</span>
+<ul>
+<li class="enhancement">Added a preferences panel (Preferences &gt; Java &gt; Decompiler) to show/hide the line numbers and the metadata.</li>
+<li>JD-Eclipse 0.1.3 includes JD-Core 0.5.3.</li>
+</ul>
+</li>
+<li id="node-344">0.1.2 <span class="date">26 Jul 2009</span>
+<ul>
+<li class="enhancement">Improved the class file locator.</li>
+<li class="enhancement">Added capability to edit the decompiled source files.</li>
+<li class="major-enhancement">The Linux and Windows 64-bit platforms are supported.</li>
+<li>JD-Eclipse 0.1.2 includes JD-Core 0.5.1.</li>
+</ul>
+</li>
+<li id="node-290">0.1.1 <span class="date">11 May 2009</span>
+<ul>
+<li class="enhancement">The line numbers are displayed.</li>
+<li class="enhancement">The meta-data and some additional informations are added.</li>
+<li class="bug-fix">The "Check for update" feature was removed.</li>
+<li class="major-enhancement">JD-Eclipse runs under Mac OSX.</li>
+<li class="major-enhancement">The JD-Eclipse protection, checking the current date, was removed.</li>
+<li>JD-Eclipse 0.1.1 includes JD-Core 0.5.0.</li>
+</ul>
+</li>
+<li id="node-224">0.1.0 <span class="date">18 Feb 2009</span>
+<ul>
+<li>First public version.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span6">
+<b>JD-Core</b>
+<ul class="list">
+<li id="node-724">0.7.1 <span class="date">17 Aug 2014</span>
+<ul>
+<li class="bug-fix">Fixed bug on recognition of ".class" expressions.</li>
+<li class="bug-fix">Fixed bug on recognition of "Switch Enum" instructions.</li>
+<li class="enhancement">Replacement of numeric values by known  numeric constants (e.g. Long.MAX_VALUE).</li>
+<li class="enhancement">Removed unnecessary "java.lang" prefixes.</li>
+<li class="bug-fix">Fixed bug on recognition of try-cacht statements containing a ternary operator on last position.</li>
+<li class="bug-fix">Added cast instructions on returned generic variables.</li>
+<li class="enhancement">Hiding synthetic fields of anonymous classes.</li>
+<li class="major-enhancement">Internally, improved JD-Core memory management (complex Smart Pointer C++ 11 replaced by basic but very efficient memory pool).</li>
+</ul>
+</li>
+<li id="node-724">0.7.0 <span class="date">05 Nov 2013</span>
+<ul>
+<li class="enhancement">Improved source code layout.</li>
+<li class="enhancement">Improved display for-enum statements.</li>
+<li class="major-bug-fix">Fixed a bug on the display of anonymous classes in anonymous classes.</li>
+<li class="major-enhancement">Added an algorithm to realign the decompiled source code to the original line numbers.</li>
+<li class="major-enhancement">Improved stability (catching of Hardware Exceptions under Windows and Segmentation Faults under Linux and OSX).</li>
+<li class="bug-fix">Fixed a bug on the decompilation of the "Switch Enum" statement.</li>
+</ul>
+</li>
+<li id="node-724">0.6.2 <span class="date">18 Oct 2012</span>
+<ul>
+<li class="major-bug-fix">Fixed bug on the decompilation of expressions : "(a - b) / 100.0D" was displayed as "a - b / 100.0D".</li>
+</ul>
+</li>
+<li id="node-721">0.6.1 <span class="date">28 Aug 2012</span>
+<ul>
+<li class="major-enhancement">Improved recognition of instruction flows.</li>
+<li class="major-enhancement">Significant improvement in the stability of the core.</li>
+</ul>
+</li>
+<li id="node-558">0.6.0 <span class="date">18 Aug 2010</span>
+<ul>
+<li class="major-enhancement">Improved recognition of instruction flows (Reduction of methods marked with ERROR and instructions "break label").</li>
+<li class="bug-fix">Display calls to constructor "this()".</li>
+<li class="bug-fix">Display ';' after 'break label'.</li>
+<li class="bug-fix">Display enum constructors.</li>
+</ul>
+</li>
+<li id="node-473">0.5.4 <span class="date">20 Mar 2010</span>
+<ul>
+<li class="bug-fix">Fixed bug on call of "this(...)" in constructors.</li>
+<li class="bug-fix">Display unique constructor without argument and launching exception(s).</li>
+<li class="bug-fix">Fixed bug of octal representation of characters.</li>
+<li class="bug-fix">Improved reconstruction of ".class" generated by JRE 1.4.</li>
+<li class="bug-fix">Display initial value of boolean attribute.</li>
+<li class="bug-fix">Display constructors of Enum.</li>
+<li class="major-bug-fix">Fixed major bug on pre and post incrementation statements.</li>
+<li class="enhancement">Java 5: Display switch+Enum.</li>
+<li class="enhancement">Java 7: Display switch+String.</li>
+<li class="major-bug-fix">Fixed bug on priority of operators.</li>
+<li class="enhancement">Remove extra parentheses associated with return statement.</li>
+</ul>
+</li>
+<li id="node-410">0.5.3 <span class="date">22 Nov 2009</span>
+<ul>
+<li class="bug-fix">Fixed bug on decompilation of 'assert'.</li>
+<li class="major-enhancement">Improved the robustness of JD-Core against the corrupted classes.</li>
+</ul>
+</li>
+<li id="node-394">0.5.2 <span class="date">29 Oct 2009</span>
+<ul>
+<li class="enhancement">Added support of 'assert'.</li>
+<li class="bug-fix">Fixed bug on recongnition of the 'for' statements.</li>
+<li class="bug-fix">Fixed bug on recongnition of the synchronized blocks.</li>
+<li class="bug-fix">Fixed bug on recongnition the 'if' statements.</li>
+<li class="bug-fix">Fixed bug on recongnition the ternary statements.</li>
+<li class="major-bug-fix">Fixed bug on recongnition the 'try' statements.</li>
+</ul>
+</li>
+<li id="node-328">0.5.1 <span class="date">30 Jun 2009</span>
+<ul>
+<li class="major-enhancement">Improved the reconstruction of the loops when a "try" or "synchronized" statement is on the last position.</li>
+<li class="major-enhancement">Improved the reconstruction of the "if-else" statements when a "try" or "synchronized" statement is on the last position.</li>
+<li class="bug-fix">Removed extra "," at the beginning of parameters list.</li>
+<li class="enhancement">Improved the reconstruction of the "break" and "continue" statements.</li>
+<li class="bug-fix">Fixed bug on floating point precision.</li>
+<li class="bug-fix">Fixed bug on the declaration of multi-dimensional arrays.</li>
+<li class="enhancement">Improved the reconstruction of the Java 5 "for-each" loops.</li>
+<li class="enhancement">Improved reconstruction of the "try ... catch ... finally" and "synchronized" statments.</li>
+<li class="enhancement">Improved reconstruction of the keyword ".class" for Java 1.1.8.</li>
+</ul>
+</li>
+<li id="node-280">0.5.0 <span class="date">26 Apr 2009</span>
+<ul>
+<li class="major-enhancement">Redesigned core to improve the decompilation of the inner classes.</li>
+<li class="enhancement">Improved the reconstruction of the Java 5 &ldquo;for-each&rdquo; loops.</li>
+<li class="bug-fix">Fixed bug on declaration of variables.</li>
+<li class="bug-fix">Fixed bug on empty &ldquo;finally&rdquo; blocks.</li>
+</ul>
+</li>
+<li id="node-235">0.4.7 <span class="date">27 Feb 2009</span>
+<ul>
+<li class="bug-fix">Fixed bug on constants of type long.</li>
+<li class="bug-fix">Fixed bug on floating point precision.</li>
+<li class="bug-fix">Fixed bug on decompilation of multiple super interfaces.</li>
+<li class="major-bug-fix">Fixed bug on initialization of arrays of constants.</li>
+<li class="bug-fix">Fixed bug on boolean operators values.</li>
+<li class="major-enhancement">Added capability to decompile Java 5 &ldquo;for-each&rdquo; loop.</li>
+</ul>
+</li>
+<li id="node-181">0.4.6 <span class="date">24 Dec 2008</span>
+<ul>
+<li class="bug-fix">Fixed bug with wrong qualified names.</li>
+<li class="bug-fix">Fixed bug with empty default constructor.</li>
+<li class="major-bug-fix">Fixed bug with nested while error.</li>
+<li class="bug-fix">Fixed bug in display of value of type "long".</li>
+</ul>
+</li>
+<li id="node-140">0.4.5 <span class="date">23 Nov 2008</span>
+<ul>
+<li class="enhancement">Improved recontruction of ternary operator.</li>
+<li class="enhancement">Improved decompilation of the Hashtable class compiled with javac 1.5.0 and 1.6.0.</li>
+<li class="bug-fix">Fix bug on declaration of interface.</li>
+</ul>
+</li>
+<li id="node-59">0.4.4 <span class="date">11 Sep 2008</span>
+<ul>
+<li class="major-enhancement">Improved reconstruction of statments &ldquo;try ... catch ... finally&rdquo; and &ldquo;synchronized&rdquo;.</li>
+<li class="bug-fix">Fixed bug with reconstruction of instructions &ldquo;dup2_x1&rdquo;.</li>
+<li class="enhancement">Added reconstruction of assigment operators.</li>
+<li class="major-bug-fix">Fixed memory leak.</li>
+<li class="bug-fix">Fixed many other bugs...</li>
+</ul>
+</li>
+<li id="node-58">0.4.3 <span class="date">03 Aug 2008</span>
+<ul>
+<li class="bug-fix">Fixed bug with reconstruction of statment &ldquo;if&rdquo; in the blocks &ldquo;try&rdquo;.</li>
+<li class="enhancement">Improved reconstruction of obfuscated variable names.</li>
+<li class="bug-fix">Fixed bug with reconstruction of comparisons of variables of types &ldquo;long&rdquo; and  &ldquo;double&rdquo;.</li>
+<li class="bug-fix">Fixed bug with display of constants of type &ldquo;long&rdquo;.</li>
+</ul>
+</li>
+<li id="node-57">0.4.2 <span class="date">13 Jul 2008</span>
+<ul>
+<li class="major-enhancement">Added initialization of attributes instance.</li>
+</ul>
+</li>
+<li id="node-56">0.4.1 <span class="date">27 Jun 2008</span>
+<ul>
+<li class="major-enhancement">Fixed many memory leaks.</li>
+</ul>
+</li>
+<li id="node-55">0.4.0 <span class="date">24 May 2008</span>
+<ul>
+<li class="bug-fix">Fixed many bugs...</li>
+<li class="major-enhancement">Redesigned core to take advantage of the line numbers if this information is present in &ldquo;.class&rdquo; files.</li>
+<li class="enhancement">Improved reconstruction of loops &ldquo;for&rdquo;.</li>
+<li class="enhancement">Improved initialisation of arrays.</li>
+</ul>
+</li>
+<li id="node-54">0.3.5 <span class="date">13 Apr 2008</span>
+<ul>
+<li class="bug-fix">Fixed bug in generation of list of &ldquo;import&rdquo;.</li>
+<li class="bug-fix">Fixed bug in reconstruction of ternary operator.</li>
+<li class="enhancement">Display annotations on method parameters.</li>
+</ul>
+</li>
+<li id="node-53">0.3.4 <span class="date">20 Mar 2008</span>
+<ul>
+<li class="major-bug-fix">Fixed crash caused by deserialization of annotations.</li>
+<li class="enhancement">Improved reconstruction of Java keyword &ldquo;class&rdquo; compiled with JDK 1.1.8, 1.3.1 & 1.4.2, Jikes 1.22, Eclipse Java Compiler v_677_R32x and harmony-jdk-r533500.</li>
+<li class="major-bug-fix">Fixed bug in reconstruction of the &ldquo;try...catch&rdquo; statements.</li>
+<li class="bug-fix">Fixed bug in module for determination of type of local variables.</li>
+<li class="enhancement">Improved reconstruction of blocs &ldquo;try...finally&rdquo; compiled with JDK 1.1.8.</li>
+</ul>
+</li>
+<li id="node-52">0.3.3 <span class="date">16 Feb 2008</span>
+<ul>
+<li class="enhancement">Improved module for determination of type of local variables.</li>
+<li class="enhancement">Improved creation of the &ldquo;try...catch&rdquo; statements.</li>
+<li class="major-bug-fix">Changed priority of operators '+=' and '-='.</li>
+<li class="bug-fix">Fixed syntax error on &ldquo;throws&rdquo; keyword.</li>
+<li class="bug-fix">Fixed bug of methods named &ldquo;length()&rdquo;.</li>
+<li class="bug-fix">Fixed bug in deserialization of "wide" instruction.</li>
+</ul>
+</li>
+<li id="node-51">0.3.2 <span class="date">03 Feb 2008</span>
+<ul>
+<li class="bug-fix">Fixed &ldquo;java.util.Collections&rdquo; 1.5 decompilation bug.</li>
+<li class="enhancement">Renamed methods when their name is a Java keyword.</li>
+</ul>
+</li>
+<li id="node-50">0.3.1 <span class="date">15 Jan 2008</span>
+<ul>
+<li>First public version.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id ="jd-intellij" class="container">
+<div class="span12">
+<div class="page-header">
+<h1>JD-IntelliJ</h1>
+</div>
+</div>
+<div class="offset1 span11">
+<div class="tabbable">
+<ul class="nav nav-tabs">
+<li class="active"><a id="jd-intellij-overview-tab" href="#jd-intellij-overview" data-toggle="tab">Overview</a></li>
+<li><a id="jd-intellij-download-tab" href="#jd-intellij-download" data-toggle="tab">Download</a></li>
+<li><a id="jd-intellij-changes-tab" href="#jd-intellij-changes" data-toggle="tab">Changes</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="jd-intellij-overview">
+<p>JD-IntelliJ is a plug-in for IntelliJ IDEA, initiated by <b>Brice Dutheil</b>. It allows you to display all the Java sources during your debugging process, even if you do not have them all. Currently, the project is under development. The Java sources are hosted on <a class="link" href="https://bitbucket.org/bric3/jd-intellij">Bitbucket</a>. Your contributions are welcome.</p>
+<div class="pagination-centered">
+<img class="screenshot" src="img/screenshot16.png"></img>
+</div>
+</div>
+<div class="tab-pane" id="jd-intellij-download">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span6">
+<h2>Release<a name="release">&nbsp;</a></h2>
+<ul class="release">
+<li class="intellij">
+<div>&nbsp;</div>
+<div><a href="http://plugins.jetbrains.com/plugin/7100" class="link"><strong>Plug-in page on jetbrains.com</strong></a></div>
+<div>&nbsp;</div>
+</li>
+</ul>
+
+<h2>Source code</h2>
+<ul class="release">
+<li class="bitbucket">
+<div>&nbsp;</div>
+<div><a class="link" href="https://bitbucket.org/bric3/jd-intellij"><strong>bitbucket.org/bric3/jd-intellij</strong></a></div>
+<div>&nbsp;</div>
+</li>
+</ul>
+
+<h2>Development</h2>
+<ol>
+<li>Download the project from <a id="jd-intellij-bitbucket" class="link" href="https://bitbucket.org/bric3/jd-intellij">Bitbucket</a>.</li>
+<li>Import it on IntelliJ IDEA.</li>
+<li>Create a new configuration with the type "plugin".</li>
+<li>Run the new configuration.</li>
+</ol>
+
+</div>
+<div class="span6">
+<h2>Donations</h2>
+<p>Did JD-GUI help you to solve a critical situation? Do you use JD-Eclipse daily? What about making a donation?</p>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="img/paypal-donate.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+<select name="hosted_button_id">
+<option value="8585269" selected>Euro (&euro;)</option>
+<option value="8585343">USD (&#36;)</option>
+</select>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="tab-pane" id="jd-intellij-changes">
+<ul class="release">
+<li class="bitbucket">
+<div>&nbsp;</div>
+<div><a class="link" href="https://bitbucket.org/bric3/jd-intellij/commits/all/"><strong>Click here to view changes on Bitbucket.org</strong></a></div>
+<div>&nbsp;</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+
+<footer>
+</footer>
+
+<script src="js/jd.min.js"></script>
+</body>
+</html>
