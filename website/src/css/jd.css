@@ -1,0 +1,71 @@
+body, label, input, button, select, textarea{font-family:"Lucida Grande","Lucida Sans Unicode",Arial,sans-serif; font-size:13px;}
+header{
+	/* http://www.colorzilla.com/gradient-editor/ */
+	background: #02002e; /* Old browsers */
+	background: -moz-linear-gradient(left,  #02002e 0%, #753759 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#02002e), color-stop(100%,#753759)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #02002e 0%,#753759 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #02002e 0%,#753759 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #02002e 0%,#753759 100%); /* IE10+ */
+	background: linear-gradient(to right,  #02002e 0%,#753759 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#02002e', endColorstr='#753759',GradientType=1 ); /* IE6-9 */
+	color:#ffffff;
+}
+header aside{margin-bottom:30px; color:#C9E45A;}
+header img{margin-bottom:30px;}
+h1, h2, h3, h4{letter-spacing:-2px;}
+.logo{background:url("../img/Icon_java_64.png") no-repeat; padding:7px 0 0 80px; margin-top:30px;}
+.navbar{margin-bottom:0px;}
+.navbar .container{width:940px;}
+.navbar-inner{-webkit-border-radius:0; -moz-border-radius:0; border-radius:0; border-width:1px 0}
+section{margin-bottom:30px;}
+section .page-header, section .lead{color:#5A5A5A;}
+.container-fluid {padding:0;}
+.page-header {border-bottom:0; margin:30px 0 20px; padding-bottom:0;}
+ul.list li{list-style-image:url("../img/bullet.gif"); margin: 0;}
+ul.list li li{list-style-image:url("../img/sub_bullet.gif");}
+ul.release, ul.snapshot{list-style-type:none; margin:0;}
+ul.release li, ul.snapshot li{margin-bottom:20px; padding-left:55px;}
+ul.release li:last-child, ul.snapshot li:last-child{margin-bottom:0;}
+ul.release li.win, ul.snapshot li.win{background:url("../img/win.gif") no-repeat scroll 0 55%;}
+ul.release li.linux, ul.snapshot li.linux{background:url("../img/linux.gif") no-repeat scroll 0 55%;}
+ul.release li.osx, ul.snapshot li.osx{background:url("../img/osx.gif") no-repeat scroll 0 55%;}
+ul.release li.java, ul.snapshot li.java{background:url("../img/java.png") no-repeat scroll 0 55%;}
+ul.release li.github, ul.snapshot li.github{background:url("../img/github.png") no-repeat scroll 0 55%;}
+ul.release li.bitbucket, ul.snapshot li.bitbucket{background:url("../img/bitbucket.png") no-repeat scroll 0 55%;}
+ul.release li.eclipse, ul.snapshot li.eclipse{background:url("../img/eclipse.png") no-repeat scroll 0 55%;}
+ul.release li.intellij, ul.snapshot li.intellij{background:url("../img/intellij.png") no-repeat scroll 0 55%;}
+.link{background:url("../img/link.gif") no-repeat scroll 100% 65%; padding-right: 16px;}
+input[type="image"]{margin-bottom:10px;}
+img.screenshot{box-shadow:0 5px 10px #AAAAAA; margin:0 10px 15px 10px;}
+
+#jd-gui-changes ul.list span, #jd-eclipse-changes ul.list span{background-color:#EEEEEE; padding:3px; margin:0 0 0 4px; font-size:80%; border-radius:6px;}
+
+ul.list li.bug-fix{list-style-image:url("../img/bug_fix.gif");}
+ul.list li.major-bug-fix{list-style-image:url("../img/major_bug_fix.gif");}
+ul.list li.enhancement{list-style-image:url("../img/enhancement.gif");}
+ul.list li.major-enhancement{list-style-image:url("../img/major_enhancement.gif");}
+.legend-bug-fix{background:url("../img/bug_fix.gif") no-repeat scroll 0 55%; padding-left: 15px;}
+.legend-major-bug-fix{background:url("../img/major_bug_fix.gif") no-repeat scroll 0 55%; padding-left: 15px;}
+.legend-enhancement{background:url("../img/enhancement.gif") no-repeat scroll 0 55%; padding-left: 15px;}
+.legend-major-enhancement{background:url("../img/major_enhancement.gif") no-repeat scroll 0 55%; padding-left: 15px;}
+			
+footer{margin-bottom:15px;}
+@media (min-width:1200px) {
+	.navbar .container{width:1170px;}
+}
+@media (min-width:768px) and (max-width:979px) {
+	.navbar .container{width:724px;}
+}	
+@media (max-width:767px) {		
+	body{padding-left: 10px; padding-right: 10px;}
+	.navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {margin-left: -10px; margin-right: -10px;}		
+	header{margin-right:-20px; margin-left:-20px;}
+	header .container, header .container-fluid{padding-right:13px; padding-left:13px;}
+}
+@media (max-width: 480px) {
+  .page-header h1{font-size: 30px;}
+  .navbar-inner{padding:0 5px}
+  .navbar .nav > li > a {padding: 10px 10px;}
+  img.screenshot{box-shadow: 0 3px 2px #AAAAAA; margin: 0 0 5px 0;}
+}

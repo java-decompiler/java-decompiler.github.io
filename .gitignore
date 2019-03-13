@@ -1,0 +1,26 @@
+# Idea
+.idea/
+out/
+*.ipr
+*.iml
+*.iws
+
+# Eclipse
+.settings/
+classes/
+.classpath
+.project
+
+# Mac
+.DS_Store
+
+#Windows
+Thumbs.db
+
+# Gradle
+website/.gradle/
+website/build/
+!gradle/wrapper/*
+
+# WinMerge
+*.bak
