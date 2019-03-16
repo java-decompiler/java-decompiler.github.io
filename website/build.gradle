@@ -32,7 +32,7 @@ task copyImg(type: Copy) {
     from 'src/img'
 	include 'glyphicons-halflings.png', 'glyphicons-halflings-white.png', 'screenshot8.png', 'screenshot16.png', 
 	        'screenshot17.png', 'paypal-donate.gif', 'Icon_java_64.png', 'bullet.gif', 'sub_bullet.gif', 'win.gif', 
-			'linux.gif', 'osx.gif', 'java.png', 'github.png', 'link.gif', 'eclipse.png', 'intellij.png'
+			'linux.gif', 'osx.gif', 'java.png', 'github.png', 'link.gif', 'eclipse.png', 'intellij.png', 'new.png'
     into '../img'
 }
 

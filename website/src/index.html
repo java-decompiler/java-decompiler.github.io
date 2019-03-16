@@ -42,7 +42,6 @@
 
 		<div class="container">
 			<div class="row">
-				
 				<section id ="jd-project">
 					<div class="span12">
 						<div class="page-header">
@@ -51,9 +50,11 @@
 					</div>
 					<div class="offset1 span11">
 						<div class="tabbable">
+							<img id="new" src="img/new.png">
 							<ul class="nav nav-tabs">
 								<li class="active"><a id="jd-project-overview-tab" href="#jd-project-overview" data-toggle="tab">Overview</a></li>
 								<li><a id="jd-project-main-features-tab" href="#jd-project-main-features" data-toggle="tab">Main Features</a></li>
+								<li><a id="jd-gui-jd-core-preview-tab" href="#jd-gui-jd-core-preview" data-toggle="tab">JD-Core 1.0.0 preview</a></img></li>
 							</ul>
 							<div class="tab-content">
 								<div class="tab-pane active" id="jd-project-overview">
@@ -89,11 +90,6 @@
 											  <li><a class="link" href="http://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html">Local method classes</a> are not decompiled correctly.</li>
 											 </ul>
 											</li>
-											<li>Java 5
-											 <ul>
-											  <li><a class="link" href="http://docs.oracle.com/javase/1.5.0/docs/guide/language/static-import.html">Static Imports</a> are not displayed, but decompiled source codes are correct.</li>
-											 </ul>
-											</li>
 											<li>Java 7
 											 <ul>
 											  <li>The <a class="link" href="http://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html">Auto-Closeable</a> syntactic sugar is not recognized.</li>
@@ -110,11 +106,34 @@
 									   </li>
 									</ul>
 								</div>
+								<div class="tab-pane" id="jd-gui-jd-core-preview">
+									<h2>Preview</h2>
+									<ul class="release">
+										<li class="java">
+											<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.4.1/jd-gui-1.4.1-jd-core-1.0.0-preview-20190315.zip"><strong>jd-gui-1.4.1-jd-core-1.0.0-preview-20190315.zip</strong></a></div>
+											<div>Size : 9.62 MB</div>
+										</li>
+									</ul>
+									<h2>Description</h2>
+									<p>JD-Core 0.x.y is a first-generation Java decompiler, published in 2008. Like <a class="link" href="http://www.javadecompilers.com/jad">JAD</a>, JD-Core 0.x.y is powered by a "simple" byte-code pattern recognition engine. Decompiled source codes are often satisfactory, but this kind of decompiler has several structural limitations.</p>
+									<p>More recent decompilers have not made this choice. <a class="link" href="https://github.com/JetBrains/intellij-community/tree/master/plugins/java-decompiler/engine">Fernflower</a> and <a class="link" href="https://bitbucket.org/mstrobel/procyon">Procyon</a> have introduced a new quality standard.</p>
+									<p>In 2015, I started to rewrite from scratch a new Java decompiler. This new version uses <a class="link" href="https://en.wikipedia.org/wiki/Control-flow_graph">CFG</a>, includes many unit tests, and is design to be expandable.</p>
+									<p>JD-Core 1.x.y can display now:</p>
+									<ul class="list">
+										<li>the <a class="link" href="http://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html">local method classes</a> (Java 1.1).</li>
+										<li>the <a class="link" href="http://docs.oracle.com/javase/tutorial/essential/exceptions/tryResourceClose.html">try-with-resources statements</a> (Java 7).</li>
+										<li>the <a class="link" href="http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html">lambda expressions</a> (Java 8).</li>
+										<li>the <a class="link" href="http://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html">default methods</a> in interfaces (Java 8).</li>
+									</ul>
+									<p>This preview allows you to compare JD-Core 0.7.1 and JD-Core-1.0.0.</p>
+									<h2>How to launch the preview ?</h2>
+									<p>Execute <i>"java -jar jd-gui-x.y.z.jar"</i> or <i>"java -classpath jd-gui-x.y.z.jar org.jd.gui.App"</i></p>
+								</div>
 							</div>
 						</div>
 					</div>
-				</section>	
-				
+				</section>
+
 				<section id ="jd-gui" class="container">
 					<div class="span12">
 						<div class="page-header">

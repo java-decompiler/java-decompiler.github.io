@@ -4,8 +4,9 @@ var _gaq = [['_setAccount', 'UA-4144628-1'],
 (function($) {
 	$(document).ready(function() {
 		// Google Analytics
-		$('#jd-project-overview-tab')		.on('mousedown', function() { _gaq.push(['_trackPageview', '/jd-project-overview']); });
-		$('#jd-project-main-features-tab')	.on('mousedown', function() { _gaq.push(['_trackPageview', '/jd-project-main-features']); });
+		$('#jd-project-overview-tab')		            .on('mousedown', function() { _gaq.push(['_trackPageview', '/jd-project-overview']); });
+		$('#jd-project-main-features-tab')	            .on('mousedown', function() { _gaq.push(['_trackPageview', '/jd-project-main-features']); });
+		$('#jd-gui-jd-core-preview-tab')	            .on('mousedown', function() { _gaq.push(['_trackPageview', '/jd-core-1.0.0-preview']); });
 
 		$('#jd-gui-overview-tab')						.on('mousedown', function() { _gaq.push(['_trackPageview', '/jd-gui-overview']); });
 		$('#jd-gui-download-tab')						.on('mousedown', function() { _gaq.push(['_trackPageview', '/jd-gui-download']); });
