@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://java-decompiler.github.io/</loc>
+    <image:image>
+      <image:loc>https://java-decompiler.github.io/img/screenshot17.png</image:loc>
+	  <image:caption>JD-GUI</image:caption>
+	  <image:title>JD-GUI</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://java-decompiler.github.io/img/screenshot8.png</image:loc>
+	  <image:caption>JD-Eclipse</image:caption>
+	  <image:title>JD-Eclipse</image:title>
+    </image:image>
     <lastmod>2019-05-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
