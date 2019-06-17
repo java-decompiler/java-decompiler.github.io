@@ -1,6 +1,6 @@
 plugins {
-	id "com.eriwen.gradle.css" version "2.14.0"
-	id "com.eriwen.gradle.js" version "2.14.1"
+    id "com.eriwen.gradle.css" version "2.14.0"
+    id "com.eriwen.gradle.js" version "2.14.1"
 }
 
 combineCss {
@@ -22,7 +22,7 @@ combineJs {
 }
 minifyJs {
     source = combineJs
-	dest = '../js/jd.min.js'
+    dest = '../js/jd.min.js'
     closure {
         warningLevel = 'QUIET'
     }
@@ -30,39 +30,39 @@ minifyJs {
 
 task copyImg(type: Copy) {
     from 'src/img'
-	include 'glyphicons-halflings.png', 'glyphicons-halflings-white.png', 'screenshot8.png', 'screenshot16.png', 
-	        'screenshot17.png', 'paypal-donate.gif', 'Icon_java_64.png', 'bullet.gif', 'sub_bullet.gif', 'win.gif', 
-			'linux.gif', 'osx.gif', 'java.png', 'github.png', 'link.gif', 'eclipse.png', 'intellij.png', 'new.png'
+    include 'glyphicons-halflings.png', 'glyphicons-halflings-white.png', 'screenshot8.png', 'screenshot16.png',
+            'screenshot17.png', 'paypal-donate.gif', 'Icon_java_64.png', 'bullet.gif', 'sub_bullet.gif', 'win.gif',
+            'linux.gif', 'osx.gif', 'java.png', 'github.png', 'link.gif', 'eclipse.png', 'intellij.png', 'new.png'
     into '../img'
 }
 
 task prepareIndexHtml {
-	doLast {
-		def html = file('src/index.html').text
-			.replace('jd.css', 'jd.min.css')
-			.replace('jd.js', 'jd.min.js')
-			.replaceAll('<link.*href="((?!css\\/jd\\.min\\.css).)*".*rel="stylesheet"[^>]*>', '')
-			.replaceAll('<script.*src="((?!js\\/jd\\.min\\.js).)*">(<\\/script>)?', '')
-			.replaceAll('\\n\\s*', '')
-		file('build/html').mkdirs()
-		file('build/html/index.html').write(html)
-	}
+    doLast {
+        def html = file('src/index.html').text
+            .replace('jd.css', 'jd.min.css')
+            .replace('jd.js', 'jd.min.js')
+            .replaceAll('<link.*href="((?!css\\/jd\\.min\\.css).)*".*rel="stylesheet"[^>]*>', '')
+            .replaceAll('<script.*src="((?!js\\/jd\\.min\\.js).)*">(<\\/script>)?', '')
+            .replaceAll('\\n\\s*', '')
+        file('build/html').mkdirs()
+        file('build/html/index.html').write(html)
+    }
 }
 
 task copyFiles {
-	dependsOn prepareIndexHtml
-	doLast {
-		['src/.htaccess', 'src/favicon.ico', 'src/google8db921c12949ed8c.html', 'src/sitemap.xml', 'build/html/index.html'].each { file -> ant.copy(file: file, todir: '..') }
-	}
+    dependsOn prepareIndexHtml
+    doLast {
+        ['src/.htaccess', 'src/favicon.ico', 'src/google8db921c12949ed8c.html', 'src/sitemap.xml', 'build/html/index.html'].each { file -> ant.copy(file: file, todir: '..') }
+    }
 }
 
 task build {
-	dependsOn minifyCss, minifyJs, copyImg, copyFiles
+    dependsOn minifyCss, minifyJs, copyImg, copyFiles
 }
 
 task clean {
-	doLast {
-		['../.htaccess', '../favicon.ico', '../google8db921c12949ed8c.html', '../index.html'].each { file -> ant.delete(file: file)	}
-		['../css', '../img', '../js', 'build'].each { dir -> ant.delete(dir: dir) }
-	}
+    doLast {
+        ['../.htaccess', '../favicon.ico', '../google8db921c12949ed8c.html', '../index.html'].each { file -> ant.delete(file: file)	}
+        ['../css', '../img', '../js', 'build'].each { dir -> ant.delete(dir: dir) }
+    }
 }
