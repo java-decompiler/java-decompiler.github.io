@@ -52,7 +52,7 @@ task prepareIndexHtml {
 task copyFiles {
     dependsOn prepareIndexHtml
     doLast {
-        ['src/.htaccess', 'src/favicon.ico', 'src/google8db921c12949ed8c.html', 'src/sitemap.xml', 'build/html/index.html'].each { file -> ant.copy(file: file, todir: '..') }
+        ['src/.htaccess', 'src/favicon.ico', 'src/google8db921c12949ed8c.html', 'src/sitemap.xml', 'src/robot.txt', 'build/html/index.html'].each { file -> ant.copy(file: file, todir: '..') }
     }
 }
 
@@ -62,7 +62,7 @@ task build {
 
 task clean {
     doLast {
-        ['../.htaccess', '../favicon.ico', '../google8db921c12949ed8c.html', '../index.html'].each { file -> ant.delete(file: file)	}
+        ['../.htaccess', '../favicon.ico', '../google8db921c12949ed8c.html', '../sitemap.xml', '../robot.txt', '../index.html'].each { file -> ant.delete(file: file)	}
         ['../css', '../img', '../js', 'build'].each { dir -> ant.delete(dir: dir) }
     }
 }
