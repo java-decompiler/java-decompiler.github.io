@@ -68,7 +68,7 @@
 									   <li>JD-Core and JD-GUI are written in Java.</li>
 									   <li>JD-Core works with most current compilers including the following:
 									   <ul>
-										 <li>JDK 1.1.8, JDK 1.3.1, JDK 1.4.2, JDK 1.5.0, JDK 1.6.0, JDK 1.7.0, JDK 1.8.0, JDK 9.0.0, JDK 10.0.0</li>
+										 <li>JDK 1.1.8, JDK 1.3.1, JDK 1.4.2, JDK 1.5.0, JDK 1.6.0, JDK 1.7.0, JDK 1.8.0, JDK 9.0.1, JDK 10.0.2</li>
 										 <li>jrockit90_150_06</li>
 										 <li>jikes-1.22</li>
 										 <li>harmony-jdk-r533500</li>
@@ -76,10 +76,10 @@
 									   </ul>
 									   </li>
 									   <li>JD-GUI supports Drag and Drop.</li>
-									   <li>JD-GUI supports CLASS, JAR, WAR, EAR &amp; ZIP files.</li>
+									   <li>JD-GUI supports CLASS, JAR, WAR, EAR, AAR, JMOD &amp; ZIP files.</li>
 									   <li>JD-GUI displays color coded Java source code.</li>
-									   <li>JD-GUI allows you to browse the CLASS files hierarchy.</li>
-									   <li>JD-GUI displays LOG files, and allow you to decompile CLASS files appearing in Java stack traces.</li>
+									   <li>JD-GUI allows you to browse the CLASS files and Java modules hierarchy.</li>
+									   <li>JD-GUI lets you drag and drop LOG files, decompile CLASS files, and display the line of code that appears in Java stack traces.</li>
 									</ul>
 								</div>
 							</div>
@@ -111,10 +111,13 @@
 									<div class="container-fluid">
 										<div class="row-fluid">
 											<div class="span12">
-												<h2>Release notes - 05/26/2019</h2>
+												<h2>Release notes - 06/16/2019</h2>
+												<p>JD-GUI 1.6.0 adds the Java 9 support. This release includes the following changes:</p>
 												<ul class="list">
-													<li>JD-Core 1.5.1 add the capability to search source code on maven.org and display it instead of decompiled code.</li>
-													<li>It is powered by the new JD-Core 1.0.2, rewrite from scratch, to improve the quality of decompiled source codes and support news features such as lambda expressions.</li>
+													<li>Adding indexation of "module-info.class" files and hyperlinks on Java module pages</li>
+													<li>Adding multi-release JAR file support</li>
+													<li>Adding AAR (Android archive) file support</li>
+													<li>Adding JMOD (Java 9 module) file support</li>
 												</ul>
 											</div>
 										</div>
@@ -123,25 +126,25 @@
 												<h2>Releases</h2>
 												<ul class="release">
 													<li class="java">
-														<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.5.1/jd-gui-1.5.1.jar"><strong>jd-gui-1.5.1.jar</strong></a></div>
-														<div>Size : 2.84 MB</div>
+														<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.6.0/jd-gui-1.6.0.jar"><strong>jd-gui-1.6.0.jar</strong></a></div>
+														<div>Size : 2.89 MB</div>
 													</li>
 													<li class="java">
-														<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.5.1/jd-gui-1.5.1-min.jar"><strong>jd-gui-1.5.1-min.jar</strong></a></div>
-														<div>Size : 1.30 MB</div>
+														<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.6.0/jd-gui-1.6.0-min.jar"><strong>jd-gui-1.6.0-min.jar</strong></a></div>
+														<div>Size : 1.33 MB</div>
 													</li>
 													<li class="linux">
-														<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.5.1/jd-gui-1.5.1.rpm"><strong>jd-gui-1.5.1.rpm</strong></a></div>
-														<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.5.1/jd-gui-1.5.1.deb"><strong>jd-gui-1.5.1.deb</strong></a></div>
-														<div>Size : 1.17 MB</div>
+														<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.6.0/jd-gui-1.6.0.rpm"><strong>jd-gui-1.6.0.rpm</strong></a></div>
+														<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.6.0/jd-gui-1.6.0.deb"><strong>jd-gui-1.6.0.deb</strong></a></div>
+														<div>Size : 1.20 MB</div>
 													</li>
 													<li class="osx">
-														<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.5.1/jd-gui-osx-1.5.1.tar"><strong>jd-gui-osx-1.5.1.tar</strong></a></div>
-														<div>Size : 1.41 MB</div>
+														<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.6.0/jd-gui-osx-1.6.0.tar"><strong>jd-gui-osx-1.6.0.tar</strong></a></div>
+														<div>Size : 1.44 MB</div>
 													</li>
 													<li class="win">
-														<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.5.1/jd-gui-windows-1.5.1.zip"><strong>jd-gui-windows-1.5.1.zip</strong></a></div>
-														<div>Size : 1.20 MB</div>
+														<div><a href="https://github.com/java-decompiler/jd-gui/releases/download/v1.6.0/jd-gui-windows-1.6.0.zip"><strong>jd-gui-windows-1.6.0.zip</strong></a></div>
+														<div>Size : 1.23 MB</div>
 													</li>
 												</ul>
 											</div>
