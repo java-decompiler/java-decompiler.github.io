@@ -1,2 +1,2 @@
-# java-decompiler.github.io
+# Java-decompiler.github.io
 Java Decompiler Site
